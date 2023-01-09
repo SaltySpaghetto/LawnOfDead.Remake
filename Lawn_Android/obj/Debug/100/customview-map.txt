@@ -1,0 +1,5 @@
+domain;obj\Debug\100\res\xml\network_security_config.xml
+domain-config;obj\Debug\100\res\xml\network_security_config.xml
+network-security-config;obj\Debug\100\res\xml\network_security_config.xml
+resources;obj\Debug\100\res\values\strings.xml
+string;obj\Debug\100\res\values\strings.xml

@@ -1,0 +1,5 @@
+domain;obj\Release\100\res\xml\network_security_config.xml
+domain-config;obj\Release\100\res\xml\network_security_config.xml
+network-security-config;obj\Release\100\res\xml\network_security_config.xml
+resources;obj\Release\100\res\values\strings.xml
+string;obj\Release\100\res\values\strings.xml
