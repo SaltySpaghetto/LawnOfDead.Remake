@@ -20,5 +20,10 @@
             </summary>
             <param name="netPeer"></param>
         </member>
+        <member name="T:Resources">
+            <summary>
+            /namespace LawnLawn
+            </summary>
+        </member>
     </members>
 </doc>

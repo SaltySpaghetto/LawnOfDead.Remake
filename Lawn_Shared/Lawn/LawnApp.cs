@@ -9,9 +9,17 @@ namespace Lawn
     {
         public LawnApp(Main m) : base(m)
         {
+
             mCloseRequest = false;
+        }
+
+        public override void LoadingThreadProc()
+        {
+            Resources.Extract_BackgroundResources(mResourceManager);
+            mResourceManager.LoadAllResources();
         }
 
         public bool mCloseRequest;
     }
 }
+//Extract_BackgoundResources

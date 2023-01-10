@@ -9,7 +9,7 @@ namespace LAWN
         static void Main()
         {
             Game game = new Main();
-            game.Window.Title = "Insaniquarium Deluxe 1.2";
+            game.Window.Title = "Insaniquarium Deluxe 1.0";
             game.Run();
         }
     }
