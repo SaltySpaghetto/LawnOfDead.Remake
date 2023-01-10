@@ -497,6 +497,7 @@ namespace Sexy
             Constants.ZEN_YMAX = 310;
             Constants.ZenGarden_GoldenWater_Size = new Rectangle(-70, -90, 80, 80);
             Constants.STINKY_SLEEP_POS_Y = 461;
+            /*
             Constants.gMushroomGridPlacement = new SpecialGridPlacement[]
             {
                 new SpecialGridPlacement(110, 441, 0, 0),
@@ -508,6 +509,7 @@ namespace Sexy
                 new SpecialGridPlacement(486, 478, 6, 0),
                 new SpecialGridPlacement(552, 283, 7, 0)
             };
+            */
             Constants.ZenGarden_Marigold_Sprout_Offset = new Point(24, 30);
             Constants.ZenGarden_Aquarium_ShadowOffset = new Point(35, 0);
             Constants.Challenge_SeeingStars_StarfruitPreview_Offset_Y = 8;
@@ -1086,6 +1088,7 @@ namespace Sexy
             Constants.ZEN_YMAX = 500;
             Constants.ZenGarden_GoldenWater_Size = new Rectangle(-100, -100, 100, 100);
             Constants.STINKY_SLEEP_POS_Y = 540;
+            /*
             Constants.gMushroomGridPlacement = new SpecialGridPlacement[]
             {
                 new SpecialGridPlacement(80, 435, 0, 0),
@@ -1097,6 +1100,7 @@ namespace Sexy
                 new SpecialGridPlacement(500, 472, 6, 0),
                 new SpecialGridPlacement(580, 283, 7, 0)
             };
+            */
             Constants.ZenGarden_Marigold_Sprout_Offset = new Point(24, 30);
             Constants.ZenGarden_Aquarium_ShadowOffset = new Point(35, 0);
             Constants.Challenge_SeeingStars_StarfruitPreview_Offset_Y = 14;
@@ -1648,6 +1652,7 @@ namespace Sexy
             Constants.ZEN_YMAX = 500;
             Constants.ZenGarden_GoldenWater_Size = new Rectangle(-100, -100, 100, 100);
             Constants.STINKY_SLEEP_POS_Y = 540;
+            /*
             Constants.gMushroomGridPlacement = new SpecialGridPlacement[]
             {
                 new SpecialGridPlacement(80, 435, 0, 0),
@@ -1659,6 +1664,7 @@ namespace Sexy
                 new SpecialGridPlacement(500, 472, 6, 0),
                 new SpecialGridPlacement(580, 283, 7, 0)
             };
+            */
             Constants.ZenGarden_Marigold_Sprout_Offset = new Point(24, 30);
             Constants.ZenGarden_Aquarium_ShadowOffset = new Point(35, 0);
             Constants.Challenge_SeeingStars_StarfruitPreview_Offset_Y = 14;
@@ -2589,7 +2595,7 @@ namespace Sexy
 
         public static int STINKY_SLEEP_POS_Y;
 
-        public static SpecialGridPlacement[] gMushroomGridPlacement;
+        //public static SpecialGridPlacement[] gMushroomGridPlacement;
 
         public static Point ZenGarden_Marigold_Sprout_Offset;
 

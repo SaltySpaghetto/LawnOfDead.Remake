@@ -9,6 +9,7 @@
     <Import_RootNamespace>Lawn_Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Lawn\LawnApp.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sexy\Extension\ScreenScales.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sexy\Extension\FrameCounter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sexy\System\Common.cs" />

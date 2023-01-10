@@ -47,13 +47,13 @@ namespace Sexy
                 mNoButton = new DialogButton(theButtonComponentImage, 1001, this);
                 if (mButtonMode == 1)
                 {
-                    mYesButton.mLabel = Strings.YES;
-                    mNoButton.mLabel = Strings.NO;
+                    mYesButton.mLabel = "YES";//Strings.YES;
+                    mNoButton.mLabel = "NO";//Strings.NO;
                 }
                 else
                 {
-                    mYesButton.mLabel = Strings.OK;
-                    mNoButton.mLabel = Strings.CANCEL;
+                    mYesButton.mLabel = "OK";//Strings.OK;
+                    mNoButton.mLabel = "CANCEL";//Strings.CANCEL;
                 }
             }
             else if (mButtonMode == 3)
@@ -72,8 +72,8 @@ namespace Sexy
             mButtonHeight = ((theButtonComponentImage == null) ? ((int)Constants.InvertAndScale(24f)) : theButtonComponentImage.mHeight);
             mHasTransparencies = true;
             mHasAlpha = true;
-            mHeaderFont = Resources.FONT_BRIANNETOD16;
-            mLinesFont = Resources.FONT_BRIANNETOD12;
+            //mHeaderFont = ;// Resources.FONT_BRIANNETOD16;
+            //mLinesFont = "ARIAL";// Resources.FONT_BRIANNETOD12;
             mDragging = false;
             mPriority = 1;
             if (theButtonComponentImage == null)
@@ -185,7 +185,7 @@ namespace Sexy
                 }
                 num += mHeaderFont.GetLineSpacing();
             }
-            return num + AtlasResources.IMAGE_DIALOG_BOTTOMMIDDLE.GetHeight();
+            return num;// + AtlasResources.IMAGE_DIALOG_BOTTOMMIDDLE.GetHeight();
         }
 
         public override void Draw(Graphics g)

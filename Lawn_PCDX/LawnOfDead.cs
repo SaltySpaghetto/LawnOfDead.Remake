@@ -4,13 +4,12 @@ using Sexy;
 
 namespace LAWN
 {
-    class PlantsVsZombies
+    class LawnOfDead
     {
         static void Main()
         {
             Game game = new Main();
-            game.Window.Title = String.Format
-            ("Insaniquarium Deluxe 1.2 v{0}", Lawn.LawnApp.AppVersionNumber);
+            game.Window.Title = "Insaniquarium Deluxe 1.2";
             game.Run();
         }
     }

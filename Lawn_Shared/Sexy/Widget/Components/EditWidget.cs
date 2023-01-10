@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.GamerServices;
-using Sexy.TodLib;
+//using Sexy.TodLib;
 
 namespace Sexy
 {
@@ -43,8 +43,8 @@ namespace Sexy
             mMaxPixels = -1;
             mPasswordChar = new SexyChar('\0');
             mBlinkDelay = 40;
-            mTitle = TodStringFile.TodStringTranslate(title);
-            mDescription = TodStringFile.TodStringTranslate(description);
+            mTitle = title;
+            mDescription = description;
             mEditing = false;
             mAcceptsEmptyText = false;
             mFont = new Font();

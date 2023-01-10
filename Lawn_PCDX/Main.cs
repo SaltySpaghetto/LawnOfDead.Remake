@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Globalization;
-using Lawn;
+//using Lawn;
 //using Microsoft.Phone.Info;
 //using Microsoft.Phone.Shell;
 using Microsoft.Xna.Framework;
@@ -17,21 +17,21 @@ namespace Sexy
 	{
 		public Main()
 		{
-			Main.SetupTileSchedule();
+			//Main.SetupTileSchedule();
 			Main.graphics = Graphics.GetNew(this);
-			Main.SetLowMem();
+			//Main.SetLowMem();
 			Main.graphics.IsFullScreen = false;
-			Guide.SimulateTrialMode = false;
+			//Guide.SimulateTrialMode = false;
 			Main.graphics.PreferredBackBufferWidth = 800;
-			Main.graphics.PreferredBackBufferHeight = 480;
-			GraphicsState.mGraphicsDeviceManager.SupportedOrientations = Constants.SupportedOrientations;
+			Main.graphics.PreferredBackBufferHeight = 600;
+			//GraphicsState.mGraphicsDeviceManager.SupportedOrientations = Constants.SupportedOrientations;
 			GraphicsState.mGraphicsDeviceManager.DeviceCreated += new EventHandler<EventArgs>(graphics_DeviceCreated);
 			GraphicsState.mGraphicsDeviceManager.DeviceReset += new EventHandler<EventArgs>(graphics_DeviceReset);
 			GraphicsState.mGraphicsDeviceManager.PreparingDeviceSettings += new EventHandler<PreparingDeviceSettingsEventArgs>(mGraphicsDeviceManager_PreparingDeviceSettings);
-			base.TargetElapsedTime = TimeSpan.FromSeconds(0.01);
+			//base.TargetElapsedTime = TimeSpan.FromSeconds(0.01);
 			base.Exiting += new EventHandler<EventArgs>(Main_Exiting);
-			Window.AllowUserResizing = true;
-			base.Window.ClientSizeChanged += new EventHandler<EventArgs>(this.OnResize);
+			Window.AllowUserResizing = false;
+			//base.Window.ClientSizeChanged += new EventHandler<EventArgs>(this.OnResize);
 			//PhoneApplicationService.Current.UserIdleDetectionMode = 0;
 			//PhoneApplicationService.Current.Launching += new EventHandler<LaunchingEventArgs>(this.Game_Launching);
 			//PhoneApplicationService.Current.Activated += new EventHandler<ActivatedEventArgs>(this.Game_Activated);
@@ -41,10 +41,11 @@ namespace Sexy
 			//IsFixedTimeStep = false;
 		}
 
+        /*
         public void OnResize(object sender, EventArgs e)
         {
             int DefaultW = 800;
-            int DefaultH = 480;
+            int DefaultH = 600;
             Rectangle bounds = Window.ClientBounds;
             if (GlobalStaticVars.gSexyAppBase != null)
             {
@@ -52,6 +53,7 @@ namespace Sexy
                 Graphics.Resized();
             }
         }
+        */
 
         /*private void Current_Deactivated(object sender, DeactivatedEventArgs e)
         {
@@ -111,11 +113,13 @@ namespace Sexy
         {
             GlobalStaticVars.gSexyAppBase.AppExit();
         }
-
+        
+        /*
         internal static string FetchIronPythonStdLib(Version version)
         {
             return $"./IronPython.StdLib.{version.Major}.{version.Minor}.{version.Build}.zip";
         }
+        */
 
         internal static void IronPythonConfigureWorkDir()
         {
@@ -123,47 +127,42 @@ namespace Sexy
 
         protected override void Initialize()
         {
-            base.Window.OrientationChanged += new EventHandler<EventArgs>(Window_OrientationChanged);
-            Main.GamerServicesComp = new GamerServicesComponent(this);
-            base.Components.Add(Main.GamerServicesComp);
-            ReportAchievement.Initialise();
+            //base.Window.OrientationChanged += new EventHandler<EventArgs>(Window_OrientationChanged);
+            //Main.GamerServicesComp = new GamerServicesComponent(this);
+            //base.Components.Add(Main.GamerServicesComp);
+            //ReportAchievement.Initialise();
             //LawnMod.IronPyInteractive.Serve();
             base.Initialize();
             // Window Scaling
             var f = new SharpDX.Direct2D1.Factory();
             var ww = (int)(f.DesktopDpi.Width  / 96 * 800);
-            var wh = (int)(f.DesktopDpi.Height / 96 * 480);
-            GlobalStaticVars.gSexyAppBase.mScreenScales.Init(ww, wh, 800, 480);
+            var wh = (int)(f.DesktopDpi.Height / 96 * 600);
+            GlobalStaticVars.gSexyAppBase.mScreenScales.Init(ww, wh, 800, 600);
             Main.graphics.PreferredBackBufferWidth = ww;
             Main.graphics.PreferredBackBufferHeight = wh;
             GraphicsState.mGraphicsDeviceManager.ApplyChanges();
-            // IME Support
-            GlobalStaticVars.gSexyAppBase.mWidgetManager.mIMEHandler = new MonoGame.IMEHelper.WinFormsIMEHandler(this);
-            GlobalStaticVars.gSexyAppBase.mWidgetManager.mIMEHandler.TextInput += (s, e) =>
-            {
-                Debug.OutputDebug<string>(String.Format("input:{0}", e.Character));
-                GlobalStaticVars.gSexyAppBase.mWidgetManager.KeyChar(new SexyChar(e.Character));
-            };
         }
 
+        /*
         protected override void OnExiting(object sender, EventArgs args) 
         {
             LawnMod.IronPyInteractive.Stop();		
         }
+        */
 
         protected override void LoadContent()
         {
             GraphicsState.Init();
             Main.SetupForResolution();
             GlobalStaticVars.initialize(this);
-            GlobalStaticVars.mGlobalContent.LoadSplashScreen();
+           // GlobalStaticVars.mGlobalContent.LoadSplashScreen();
             GlobalStaticVars.gSexyAppBase.StartLoadingThread();
             mWidgetManager = GlobalStaticVars.gSexyAppBase.mWidgetManager;
         }
 
         protected override void UnloadContent()
         {
-            GlobalStaticVars.mGlobalContent.cleanUp();
+           // GlobalStaticVars.mGlobalContent.cleanUp();
         }
 
         protected override void BeginRun()
@@ -192,27 +191,10 @@ namespace Sexy
             }
             HandleInput(gameTime);
             GlobalStaticVars.gSexyAppBase.UpdateApp();
-            if (!Main.trialModeChecked)
-            {
-                Main.trialModeChecked = true;
-                bool flag = Main.trialModeCachedValue;
-                Main.SetLowMem();
-                Main.trialModeCachedValue = Guide.IsTrialMode;
-                if (flag != Main.trialModeCachedValue && flag)
-                {
-                    LeftTrialMode();
-                }
-            }
-            try
-            {
-                base.Update(gameTime);
-            }
-            catch (GameUpdateRequiredException)
-            {
-                GlobalStaticVars.gSexyAppBase.ShowUpdateRequiredMessage();
-            }
+            base.Update(gameTime);
         }
 
+        /*
         private static void SetLowMem()
         {
             //object obj;
@@ -220,7 +202,9 @@ namespace Sexy
             Main.DO_LOW_MEMORY_OPTIONS = false;//(Main.LOW_MEMORY_DEVICE = ((long)obj / 1024L / 1024L <= 256L));
             Main.LOW_MEMORY_DEVICE = false;
         }
+        */
 
+        /*
         private void LeftTrialMode()
         {
             if (GlobalStaticVars.gSexyAppBase != null)
@@ -229,11 +213,14 @@ namespace Sexy
             }
             Window_OrientationChanged(null, null);
         }
+        */
 
+        /*
         public static void SuppressNextDraw()
         {
             Main.wantToSuppressDraw = true;
         }
+        */
 
         public static SignedInGamer GetGamer()
         {
@@ -255,11 +242,14 @@ namespace Sexy
             Main.newOrientation = false;
         }
 
+        /*
         private void Window_OrientationChanged(object sender, EventArgs e)
         {
             SetupInterfaceOrientation();
         }
+        */
 
+        /*
         private void SetupInterfaceOrientation()
         {
             if (GlobalStaticVars.gSexyAppBase != null)
@@ -272,13 +262,10 @@ namespace Sexy
                 GlobalStaticVars.gSexyAppBase.InterfaceOrientationChanged(UI_ORIENTATION.UI_ORIENTATION_PORTRAIT);
             }
         }
+        */
 
         protected override void Draw(GameTime gameTime)
         {
-            if (Main.newOrientation)
-            {
-                Main.SetupOrientationMatrix(Main.orientationUsed);
-            }
             lock (ResourceManager.DrawLocker)
             {
                 base.GraphicsDevice.Clear(Color.Black);
@@ -289,10 +276,12 @@ namespace Sexy
 
         public void HandleInput(GameTime gameTime)
         {
+            /*
             if (LoadingScreen.IsLoading)
             {
                 return;
             }
+            */
             MouseState msstate = Mouse.GetState();
             _Touch mstouch = default(_Touch);
             ScreenScales s = GlobalStaticVars.gSexyAppBase.mScreenScales;
@@ -323,13 +312,13 @@ namespace Sexy
                 mWidgetManager.MouseMove((int)mstouch.location.x, (int)mstouch.location.y);
             }
 
-
-
+            /*
             GamePadState state = GamePad.GetState(PlayerIndex.One);
             if (state.Buttons.Back == ButtonState.Pressed && previousGamepadState.Buttons.Back == ButtonState.Released)
             {
                 GlobalStaticVars.gSexyAppBase.BackButtonPress();
             }
+            */
             TouchCollection state2 = TouchPanel.GetState();
             bool flag = false;
             foreach (TouchLocation touchLocation in state2)
@@ -384,11 +373,12 @@ namespace Sexy
                 } 
             }
 
-            previousGamepadState = state;
+            //previousGamepadState = state;
             previousMouseState = msstate;
             previousKeyboardState = keys;
         }
 
+        /*
         protected override void OnActivated(object sender, EventArgs args)
         {
             Main.trialModeChecked = false;
@@ -402,7 +392,9 @@ namespace Sexy
             }
             base.OnActivated(sender, args);
         }
+        */
 
+        /*
         protected override void OnDeactivated(object sender, EventArgs args)
         {
             GlobalStaticVars.gSexyAppBase.LostFocus();
@@ -413,6 +405,7 @@ namespace Sexy
             GlobalStaticVars.gSexyAppBase.AppEnteredBackground();
             base.OnDeactivated(sender, args);
         }
+        */
 
         public static bool IsInTrialMode
         {
@@ -421,14 +414,16 @@ namespace Sexy
                 return Main.trialModeCachedValue;
             }
         }
-
+        
+        /*
         private void GameSpecificCheatInputCheck()
         {
         }
+        */
 
         private static void SetupForResolution()
         {
-            Strings.Culture = CultureInfo.CurrentCulture;
+            /*Strings.Culture = CultureInfo.CurrentCulture;
             if (Strings.Culture.TwoLetterISOLanguageName == "fr")
             {
                 Constants.Language = Constants.LanguageIndex.fr;
@@ -456,6 +451,7 @@ namespace Sexy
                 return;
             //}
             throw new Exception("Unsupported Resolution");
+            */
         }
 
         private static SexyTransform2D orientationTransform;

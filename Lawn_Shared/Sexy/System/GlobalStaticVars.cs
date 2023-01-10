@@ -15,6 +15,7 @@ namespace Sexy
 
         public static string LawnGetCurrentLevelName()
         {
+            /*
             if (GlobalStaticVars.gLawnApp == null)
             {
                 return "Before App";
@@ -52,6 +53,8 @@ namespace Sexy
                 return GlobalStaticVars.gLawnApp.GetStageString(GlobalStaticVars.gLawnApp.mBoard.mLevel);
             }
             return Common.StrFormat_("F{0}", GlobalStaticVars.gLawnApp.GetStageString(GlobalStaticVars.gLawnApp.mBoard.mLevel));
+            */
+            return "";
         }
 
         public static bool LawnGetCloseRequest()
@@ -61,7 +64,8 @@ namespace Sexy
 
         public static bool LawnHasUsedCheatKeys()
         {
-            return GlobalStaticVars.gLawnApp != null && GlobalStaticVars.gLawnApp.mPlayerInfo != null && !GlobalStaticVars.gLawnApp.mPlayerInfo.mHasUsedCheatKeys;
+            //return GlobalStaticVars.gLawnApp != null && GlobalStaticVars.gLawnApp.mPlayerInfo != null && !GlobalStaticVars.gLawnApp.mPlayerInfo.mHasUsedCheatKeys;
+            return false;
         }
 
         public static void initialize(Main main)
@@ -69,7 +73,7 @@ namespace Sexy
             initializeReusables();
             GlobalStaticVars.g = Main.graphics;
             GlobalStaticVars.g.Init();
-            GlobalStaticVars.mGlobalContent = new GlobalContentManager(main);
+            //GlobalStaticVars.mGlobalContent = new GlobalContentManager(main);
             GlobalStaticVars.gGetCurrentLevelName = GlobalStaticVars.LawnGetCurrentLevelName();
             GlobalStaticVars.gAppCloseRequest = GlobalStaticVars.LawnGetCloseRequest();
             GlobalStaticVars.gAppHasUsedCheatKeys = GlobalStaticVars.LawnHasUsedCheatKeys();
@@ -111,7 +115,7 @@ namespace Sexy
 
         public static Graphics g;
 
-        public static GlobalContentManager mGlobalContent;
+        //public static GlobalContentManager mGlobalContent;
 
         public static SexyAppBase gSexyAppBase;
 

@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Graphics.PackedVector;
-using Sexy.TodLib;
+//using Sexy.TodLib;
 
 namespace Sexy
 {
@@ -87,25 +87,32 @@ namespace Sexy
             return mLoadedGroups.Contains(theResGroup);
         }
 
+        /*
         public bool LoadReanimation(string filename, ref ReanimatorDefinition def)
         {
             def = ResourceManager.mReanimContentManager.Load<ReanimatorDefinition>(filename);
             def.ExtractImages();
             return true;
         }
+        */
 
+        /*
         public bool LoadParticle(string filename, ref TodParticleDefinition def)
         {
             def = ResourceManager.mParticleContentManager.Load<TodParticleDefinition>(filename);
             return true;
         }
+        */
 
+        /*
         public bool LoadTrail(string filename, ref TrailDefinition def)
         {
             def = mContentManager.Load<TrailDefinition>(filename);
             return true;
         }
+        */
 
+        /*
         public void ExtractReanimImages()
         {
             foreach (KeyValuePair<string, BaseRes> keyValuePair in mReanimMap)
@@ -113,6 +120,7 @@ namespace Sexy
                 ((ReanimRes)keyValuePair.Value).mReanim.ExtractImages();
             }
         }
+        */
 
         public bool ParseResourcesFile(string theFilename)
         {
@@ -222,6 +230,7 @@ namespace Sexy
                             goto Block_6;
                         }
                     }
+                    /*
                     else if (xmlelement.mValue == "Reanim")
                     {
                         if (!ParseReanimResource(xmlelement))
@@ -267,6 +276,7 @@ namespace Sexy
                             goto Block_18;
                         }
                     }
+                    */
                     else if (xmlelement.mValue == "Sound")
                     {
                         if (!ParseSoundResource(xmlelement))
@@ -638,6 +648,7 @@ namespace Sexy
             return true;
         }
 
+        /*
         public bool ParseReanimResource(XMLElement theElement)
         {
             ReanimRes reanimRes = new ReanimRes();
@@ -700,6 +711,7 @@ namespace Sexy
             }
             return true;
         }
+        */
 
         public bool ParseLevelResource(XMLElement theElement)
         {
@@ -959,7 +971,7 @@ namespace Sexy
             DeleteResources(mSoundMap, theGroup);
             DeleteResources(mFontMap, theGroup);
             mLoadedGroups.Remove(theGroup);
-            Resources.ExtractResourcesByName(this, theGroup);
+            //Resources.ExtractResourcesByName(this, theGroup);
         }
 
         public void UnloadInitResources()
@@ -993,7 +1005,8 @@ namespace Sexy
             }
             return null;
         }
-
+           
+        /*
         public ReanimatorDefinition GetReanimThrow(string theRes)
         {
             if (mReanimMap.ContainsKey(theRes))
@@ -1020,6 +1033,7 @@ namespace Sexy
             }
             return null;
         }
+        */
 
         public Image GetImageThrow(string theRes)
         {
@@ -1241,6 +1255,7 @@ namespace Sexy
                         flag2 = true;
                         break;
                     }
+                    /*
                     case ResType.ResType_Reanim:
                     {
                         ReanimRes reanimRes = (ReanimRes)baseRes;
@@ -1274,6 +1289,7 @@ namespace Sexy
                         flag2 = true;
                         break;
                     }
+                    */
                     }
                     if (flag2)
                     {
@@ -1328,6 +1344,7 @@ namespace Sexy
             }
             else
             {
+                /*
                 if (System.Threading.Thread.CurrentThread.IsBackground
                     || System.Threading.Thread.CurrentThread.IsThreadPoolThread)
                 {
@@ -1337,6 +1354,7 @@ namespace Sexy
                 { 
                     texture2D = PremultiplyTexture(texture2D, false); 
                 }
+                */
                 return texture2D;
             }
         }
@@ -1632,7 +1650,8 @@ namespace Sexy
             ResourceLoadedHook(musicRes);
             return true;
         }
-
+           
+        /*
         private bool DoLoadReanim(ref ReanimRes reanimRes)
         {
             ReanimRes reanimRes2 = reanimRes;
@@ -1643,7 +1662,9 @@ namespace Sexy
             ResourceLoadedHook(reanimRes);
             return true;
         }
+        */
 
+        /*
         private bool DoLoadParticle(ref ParticleRes particleRes)
         {
             ParticleRes particleRes2 = particleRes;
@@ -1654,7 +1675,9 @@ namespace Sexy
             ResourceLoadedHook(particleRes);
             return true;
         }
+        */
 
+        /*
         private bool DoLoadTrail(ref TrailRes trailRes)
         {
             TrailRes trailRes2 = trailRes;
@@ -1665,6 +1688,7 @@ namespace Sexy
             ResourceLoadedHook(trailRes);
             return true;
         }
+        */
 
         private void ResourceLoadedHook(BaseRes theRes)
         {
@@ -1705,8 +1729,8 @@ namespace Sexy
             {
                 return true;
             }
-            PerfTimer perfTimer = default(PerfTimer);
-            perfTimer.Start();
+           // PerfTimer perfTimer = default(PerfTimer);
+           // perfTimer.Start();
             StartLoadResources(theGroup);
             while (!GlobalStaticVars.gSexyAppBase.mShutdown && LoadNextResource())
             {
@@ -1721,7 +1745,7 @@ namespace Sexy
                 return false;
             }
             mLoadedGroups.Add(theGroup);
-            Math.Max((int)perfTimer.GetDuration(), 0);
+            //Math.Max((int)perfTimer.GetDuration(), 0);
             return true;
         }
 
@@ -2001,6 +2025,7 @@ namespace Sexy
             public int mSongId;
         }
 
+        /*
         internal class ReanimRes : BaseRes
         {
             public ReanimRes()
@@ -2058,7 +2083,9 @@ namespace Sexy
 
             public TrailDefinition mTrail;
         }
+        */
     }
+    
 
     static class BlendStates
     {

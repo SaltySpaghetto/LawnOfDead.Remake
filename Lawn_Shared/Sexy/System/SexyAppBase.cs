@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.GamerServices;
 using MonoGame.IMEHelper;
-using Sexy.TodLib;
+//using Sexy.TodLib;
 
 namespace Sexy
 {
@@ -539,7 +539,8 @@ namespace Sexy
             }
             return "";
         }
-
+        
+        /*
         public double GetLoadingThreadProgress()
         {
             if (mLoaded)
@@ -552,6 +553,7 @@ namespace Sexy
             }
             return (mResourceManager.mLoadedCount + (double)ReanimatorXnaHelpers.mLoadedResources) / (mResourceManager.mTotalResources + ReanimatorXnaHelpers.mTotalResources);
         }
+        */
 
         public SexyColor HSLToRGB(int h, int s, int l)
         {

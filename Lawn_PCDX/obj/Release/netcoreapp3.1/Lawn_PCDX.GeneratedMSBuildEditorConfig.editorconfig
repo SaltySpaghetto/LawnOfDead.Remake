@@ -1,6 +1,6 @@
 is_global = true
 build_property.ApplicationManifest = app.manifest
-build_property.StartupObject = LAWN.PlantsVsZombies
+build_property.StartupObject = LAWN.LawnOfDead
 build_property.ApplicationDefaultFont = 
 build_property.ApplicationHighDpiMode = 
 build_property.ApplicationUseCompatibleTextRendering = 

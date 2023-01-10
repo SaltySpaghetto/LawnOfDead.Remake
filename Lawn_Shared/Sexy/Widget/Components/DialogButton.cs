@@ -11,7 +11,7 @@ namespace Sexy
             mTextOffsetX = (mTextOffsetY = 0);
             mTranslateX = (mTranslateY = 1);
             mDoFinger = true;
-            SetColors(GlobalMembersDialogButton.gDialogButtonColors, 7);
+           // SetColors(GlobalMembersDialogButton.gDialogButtonColors, 7);
         }
 
         public override void Draw(Graphics g)
