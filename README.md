@@ -1,2 +1,1 @@
-Made with PVZ.net to extract SexyAppFramework C# version
-Credit goes to PVZ 1 Developers and the people who made PVZ.net
+Made with Sexy App Framework, credits goes to popcap for that.
