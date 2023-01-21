@@ -1,0 +1,8 @@
+﻿  Board.cpp
+C:\Users\MXZ USER\Documents\osframework\source\SexyAppFramework\KeyCodes.h(102,2): warning C4091: 'typedef ': ignored on left of 'Sexy::KeyCode' when no variable is declared
+  GameApp.cpp
+C:\Users\MXZ USER\Documents\osframework\source\SexyAppFramework\KeyCodes.h(102,2): warning C4091: 'typedef ': ignored on left of 'Sexy::KeyCode' when no variable is declared
+  Main.cpp
+  Generating Code...
+Board.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/INCREMENTAL:NO' specification
+  Lawn.vcxproj -> C:\Users\MXZ USER\Documents\Lawn\Debug\Lawn.exe
